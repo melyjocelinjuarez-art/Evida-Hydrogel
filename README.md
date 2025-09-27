@@ -7,7 +7,7 @@
     <!-- Tailwind CSS CDN - Cargado directamente para simplificar -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Chart.js CDN para las gráficas del Dashboard -->
+    <!-- Chart.js CDN (Aunque el dashboard principal es externo, se mantiene por si se necesitan gráficas internas en el futuro) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <!-- Google Fonts: Inter para una tipografía moderna y legible -->
@@ -31,20 +31,6 @@
             -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el fondo */
             background-clip: text;
             text-fill-color: transparent;
-        }
-        /* Contenedor de gráficas para Chart.js con altura definida */
-        .chart-container {
-            position: relative;
-            height: 300px; /* Altura fija para consistencia */
-            width: 100%;
-        }
-        /* Animación para los KPI cards (contadores) */
-        @keyframes count-up {
-            from { transform: translateY(15px); opacity: 0; } /* Empieza ligeramente abajo y transparente */
-            to { transform: translateY(0); opacity: 1; } /* Termina en posición y opaco */
-        }
-        .kpi-card-animation {
-            animation: count-up 0.8s ease-out forwards; /* Aplica la animación */
         }
         
         /* Animación general para secciones que aparecen al hacer scroll */
@@ -80,7 +66,8 @@
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="#problema" class="text-gray-600 hover:text-emerald-600 transition duration-300">El Problema</a>
                 <a href="#solucion" class="text-gray-600 hover:text-emerald-600 transition duration-300">La Solución</a>
-                <a href="#dashboard" class="text-gray-600 hover:text-emerald-600 transition duration-300">Impacto</a>
+                <!-- **CAMBIO**: Enlace al Dashboard externo -->
+                <a href="https://hydro-impact-showcase.lovable.app" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-emerald-600 transition duration-300">Dashboard</a>
                 <a href="#productos" class="text-gray-600 hover:text-emerald-600 transition duration-300">Productos</a>
                 <a href="#faq" class="text-gray-600 hover:text-emerald-600 transition duration-300">FAQ</a>
                 <a href="#contacto" class="bg-emerald-600 text-white px-4 py-2 rounded-full hover:bg-emerald-700 transition duration-300 shadow-lg">Contactar</a>
@@ -94,7 +81,8 @@
         <div id="mobile-menu" class="hidden md:hidden">
             <a href="#problema" class="block py-2 px-4 text-sm hover:bg-gray-100">El Problema</a>
             <a href="#solucion" class="block py-2 px-4 text-sm hover:bg-gray-100">La Solución</a>
-            <a href="#dashboard" class="block py-2 px-4 text-sm hover:bg-gray-100">Impacto</a>
+            <!-- **CAMBIO**: Enlace al Dashboard externo en menú móvil -->
+            <a href="https://hydro-impact-showcase.lovable.app" target="_blank" rel="noopener noreferrer" class="block py-2 px-4 text-sm hover:bg-gray-100">Dashboard</a>
             <a href="#productos" class="block py-2 px-4 text-sm hover:bg-gray-100">Productos</a>
              <a href="#faq" class="block py-2 px-4 text-sm hover:bg-gray-100">FAQ</a>
             <a href="#contacto" class="block py-2 px-4 text-sm hover:bg-gray-100">Contactar</a>
@@ -116,8 +104,10 @@
                         Conoce Evida Hydrogel, el poliacrilato de potasio que retiene hasta 500 veces su peso en agua, revolucionando la agricultura y garantizando el futuro de tus cultivos.
                     </p>
                     <div class="mt-8 flex justify-center md:justify-start space-x-4">
-                        <a href="#productos" class="bg-emerald-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-emerald-700 transition duration-300 shadow-xl transform hover:scale-105">Comprar Ahora</a>
-                        <a href="#dashboard" class="bg-gray-200 text-gray-800 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-300 transition duration-300">Ver Impacto</a>
+                        <!-- **CAMBIO**: Enlace al Lovable de la tienda -->
+                        <a href="https://poli-flow-shop.lovable.app" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-emerald-700 transition duration-300 shadow-xl transform hover:scale-105">Comprar Ahora</a>
+                        <!-- **CAMBIO**: Enlace al Lovable del dashboard -->
+                        <a href="https://hydro-impact-showcase.lovable.app" target="_blank" rel="noopener noreferrer" class="bg-gray-200 text-gray-800 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-300 transition duration-300">Ver Dashboard</a>
                     </div>
                 </div>
                 <!-- Imagen principal de la sección hero -->
@@ -193,58 +183,8 @@
             </div>
         </section>
 
-        <!-- Sección de Dashboard de Impacto -->
-        <section id="dashboard" class="py-20 fade-in-section">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-gray-900">Dashboard de Impacto y Resultados</h2>
-                    <p class="mt-4 text-lg text-gray-600">Datos que demuestran la eficacia de Evida Hydrogel.</p>
-                </div>
-
-                <!-- KPIs (Indicadores Clave de Desempeño) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 text-center">
-                    <div class="bg-white p-6 rounded-2xl shadow-lg kpi-card-animation">
-                        <p class="text-5xl font-extrabold gradient-text">30-70%</p>
-                        <p class="mt-2 text-gray-700 font-semibold">Reducción de Riego</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-lg kpi-card-animation" style="animation-delay: 0.2s;">
-                        <p class="text-5xl font-extrabold gradient-text">+65%</p>
-                        <p class="mt-2 text-gray-700 font-semibold">Incremento en Rendimiento</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-lg kpi-card-animation" style="animation-delay: 0.4s;">
-                        <p class="text-5xl font-extrabold gradient-text">+90%</p>
-                        <p class="mt-2 text-gray-700 font-semibold">Tasa de Supervivencia</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-lg kpi-card-animation" style="animation-delay: 0.6s;">
-                        <p class="text-5xl font-extrabold gradient-text">500x</p>
-                        <p class="mt-2 text-gray-700 font-semibold">Capacidad de Retención</p>
-                    </div>
-                </div>
-
-                <!-- Gráficas y Mapa de Impacto -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="bg-white p-6 rounded-2xl shadow-lg">
-                        <h3 class="font-bold text-lg mb-4 text-center">Ahorro de Agua por Cultivo</h3>
-                        <div class="chart-container">
-                            <canvas id="ahorroPorCultivoChart"></canvas>
-                        </div>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-lg">
-                        <h3 class="font-bold text-lg mb-4 text-center">Eficiencia en Uso de Fertilizantes</h3>
-                        <div class="chart-container">
-                            <canvas id="eficienciaNutrientesChart"></canvas>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-lg">
-                        <h3 class="font-bold text-lg mb-4 text-center">Incremento del Rendimiento a lo Largo del Tiempo</h3>
-                        <div class="chart-container">
-                            <canvas id="rendimientoTiempoChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- **SECCIÓN ELIMINADA**: El dashboard que estaba aquí fue removido. -->
+        
         <!-- Sección de Productos -->
         <section id="productos" class="py-20 bg-white fade-in-section">
             <div class="container mx-auto px-6">
@@ -261,7 +201,7 @@
                             <p class="text-gray-600 mb-4">Formulado para máxima retención hídrica en todo tipo de cultivos. Ideal para agricultura extensiva.</p>
                             <div class="flex justify-between items-center">
                                 <span class="text-2xl font-bold text-emerald-600">$850 <span class="text-sm font-normal text-gray-500">/ 25kg</span></span>
-                                <button class="bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full font-semibold hover:bg-emerald-200 transition duration-300">Agregar</button>
+                                <a href="https://poli-flow-shop.lovable.app" target="_blank" rel="noopener noreferrer" class="bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full font-semibold hover:bg-emerald-200 transition duration-300">Comprar</a>
                             </div>
                         </div>
                     </div>
@@ -273,7 +213,7 @@
                             <p class="text-gray-600 mb-4">Nuestra fórmula ecológica y biodegradable. Perfecta para reforestación y jardinería sustentable.</p>
                             <div class="flex justify-between items-center">
                                 <span class="text-2xl font-bold text-emerald-600">$1100 <span class="text-sm font-normal text-gray-500">/ 20kg</span></span>
-                                <button class="bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full font-semibold hover:bg-emerald-200 transition duration-300">Agregar</button>
+                                <a href="https://poli-flow-shop.lovable.app" target="_blank" rel="noopener noreferrer" class="bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full font-semibold hover:bg-emerald-200 transition duration-300">Comprar</a>
                             </div>
                         </div>
                     </div>
@@ -285,7 +225,7 @@
                             <p class="text-gray-600 mb-4">Granulometría fina para viveros, semilleros y jardinería de precisión. Rápida absorción y fácil aplicación.</p>
                             <div class="flex justify-between items-center">
                                 <span class="text-2xl font-bold text-emerald-600">$250 <span class="text-sm font-normal text-gray-500">/ 500g</span></span>
-                                <button class="bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full font-semibold hover:bg-emerald-200 transition duration-300">Agregar</button>
+                                <a href="https://poli-flow-shop.lovable.app" target="_blank" rel="noopener noreferrer" class="bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full font-semibold hover:bg-emerald-200 transition duration-300">Comprar</a>
                             </div>
                         </div>
                     </div>
@@ -397,7 +337,7 @@
                     <h4 class="font-semibold">Navegación</h4>
                     <ul class="mt-4 space-y-2 text-sm">
                         <li><a href="#solucion" class="text-gray-400 hover:text-white">La Solución</a></li>
-                        <li><a href="#dashboard" class="text-gray-400 hover:text-white">Impacto</a></li>
+                        <li><a href="https://hydro-impact-showcase.lovable.app" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white">Dashboard</a></li>
                         <li><a href="#faq" class="text-gray-400 hover:text-white">Preguntas Frecuentes</a></li>
                     </ul>
                 </div>
@@ -418,7 +358,14 @@
         </div>
     </footer>
 
-    <!-- Script JavaScript para interactividad (menú móvil, animaciones, gráficas) -->
+    <!-- **NUEVO**: Botón Flotante para el Chatbot de Telegram -->
+    <a href="https://web.telegram.org/k/#@Immss_evidabot" target="_blank" rel="noopener noreferrer" title="Chatea con nosotros" class="fixed bottom-6 right-6 bg-emerald-600 text-white p-4 rounded-full shadow-lg hover:bg-emerald-700 transition-transform transform hover:scale-110 z-50">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9.78 18.65l.28-4.23l7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3L3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.58c-.28 1.13-1.04 1.4-1.74.88l-4.98-3.9z"></path>
+        </svg>
+    </a>
+
+    <!-- Script JavaScript para interactividad (menú móvil, animaciones, etc.) -->
     <script>
         // Lógica para el menú móvil: alterna la visibilidad al hacer clic en el botón
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -468,95 +415,7 @@
                 }
             });
         });
-
-        // Lógica para las gráficas del Dashboard con Chart.js
-        document.addEventListener('DOMContentLoaded', () => {
-            // Opciones de configuración base para todas las gráficas
-            const chartOptions = {
-                responsive: true,
-                maintainAspectRatio: false, /* Permite que el tamaño del canvas se ajuste al contenedor */
-                plugins: { 
-                    legend: { 
-                        position: 'bottom', /* Leyenda en la parte inferior */
-                        labels: { 
-                            color: '#4B5563', /* Color de texto gris oscuro */
-                            font: { family: "'Inter', sans-serif" } 
-                        } 
-                    } 
-                },
-                scales: {
-                    y: { 
-                        beginAtZero: true, /* Eje Y empieza en cero */
-                        grid: { color: '#E5E7EB' }, /* Color de las líneas de la cuadrícula */
-                        ticks: { color: '#4B5563' } /* Color del texto de los ticks del eje Y */
-                    },
-                    x: { 
-                        grid: { display: false }, /* Oculta las líneas de la cuadrícula en el eje X */
-                        ticks: { color: '#4B5563' } /* Color del texto de los ticks del eje X */
-                    }
-                }
-            };
-            
-            // Gráfica de Ahorro de Agua por Cultivo (Barras)
-            const ahorroCultivoCtx = document.getElementById('ahorroPorCultivoChart')?.getContext('2d');
-            if(ahorroCultivoCtx) new Chart(ahorroCultivoCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Maíz', 'Tomate', 'Frijol', 'Chile'],
-                    datasets: [{
-                        label: 'Riego Tradicional (%)',
-                        data: [100, 100, 100, 100],
-                        backgroundColor: '#9CA3AF',
-                        borderRadius: 6
-                    }, {
-                        label: 'Con Evida Hydrogel (%)',
-                        data: [55, 60, 50, 65], // Datos de ejemplo de ahorro
-                        backgroundColor: '#10B981',
-                        borderRadius: 6
-                    }]
-                },
-                options: chartOptions
-            });
-
-            // Gráfica de Eficiencia en Uso de Fertilizantes (Barras)
-            const eficienciaNutrientesCtx = document.getElementById('eficienciaNutrientesChart')?.getContext('2d');
-            if(eficienciaNutrientesCtx) new Chart(eficienciaNutrientesCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Nitrógeno', 'Fósforo', 'Potasio'],
-                    datasets: [{
-                        label: 'Aprovechamiento Tradicional (%)',
-                        data: [45, 35, 40],
-                        backgroundColor: '#9CA3AF',
-                        borderRadius: 6
-                    }, {
-                        label: 'Aprovechamiento con Hydrogel (%)',
-                        data: [77, 85, 100], // El 102% se representa como 100 para la escala
-                        backgroundColor: '#10B981',
-                        borderRadius: 6
-                    }]
-                },
-                options: { ...chartOptions, indexAxis: 'y' } // Barras horizontales
-            });
-
-            // Gráfica de Incremento del Rendimiento (Línea)
-            const rendimientoTiempoCtx = document.getElementById('rendimientoTiempoChart')?.getContext('2d');
-            if(rendimientoTiempoCtx) new Chart(rendimientoTiempoCtx, {
-                type: 'line',
-                data: {
-                    labels: ['Mes 1', 'Mes 2', 'Mes 3', 'Mes 4', 'Mes 5'],
-                    datasets: [{ 
-                        label: 'Rendimiento (%)', 
-                        data: [10, 25, 40, 55, 65],
-                        borderColor: '#10B981', 
-                        backgroundColor: 'rgba(16, 185, 129, 0.1)', 
-                        tension: 0.4, 
-                        fill: true
-                    }]
-                },
-                options: chartOptions
-            });
-        });
+        
     </script>
 
 </body>
